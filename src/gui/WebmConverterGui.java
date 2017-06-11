@@ -291,7 +291,7 @@ public class WebmConverterGui
 		chckbxNoAudio = new JCheckBox("No Audio");
 		panelTabGeneral.add(chckbxNoAudio, "cell 0 0,alignx left,aligny top");
 		chckbxNoAudio.setToolTipText("Some imageboards does not accept WebMs with audio.");
-		chckbxNoAudio.setSelected(true);
+		chckbxNoAudio.setSelected(false);
 		
 		JLabel lblMaxFileSize = new JLabel("Max file size (bytes)");
 		panelTabGeneral.add(lblMaxFileSize, "cell 1 0,alignx left,aligny center");
