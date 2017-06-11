@@ -291,7 +291,7 @@ public class WebmConverterGui
 		chckbxNoAudio = new JCheckBox("No Audio");
 		panelTabGeneral.add(chckbxNoAudio, "cell 0 0,alignx left,aligny top");
 		chckbxNoAudio.setToolTipText("Some imageboards does not accept WebMs with audio.");
-		chckbxNoAudio.setSelected(true);
+		chckbxNoAudio.setSelected(false);
 		
 		JLabel lblMaxFileSize = new JLabel("Max file size (bytes)");
 		panelTabGeneral.add(lblMaxFileSize, "cell 1 0,alignx left,aligny center");
@@ -565,11 +565,11 @@ public class WebmConverterGui
 		prefs.putBoolean("PlayWhenDone", chckbxPlayWhenDone.isSelected());
 		prefs.putBoolean("NoAudio", chckbxNoAudio.isSelected());
 		prefs.put("MaxFileSize", textFieldMaxFileSize.getText());
-		prefs.putInt("Threads", (int)spinnerThreads.getValue());
-		prefs.putInt("CpuUsed", (int)spinnerCpuUsed.getValue());
-		prefs.putInt("FrameRate", (int)spinnerFrameRate.getValue());
-		prefs.putInt("Bitrate", (int)spinnerBitrate.getValue());
-		prefs.putInt("Scale", (int)spinnerScale.getValue());
+		prefs.putInt("Threads", (Integer)spinnerThreads.getValue());
+		prefs.putInt("CpuUsed", (Integer)spinnerCpuUsed.getValue());
+		prefs.putInt("FrameRate", (Integer)spinnerFrameRate.getValue());
+		prefs.putInt("Bitrate", (Integer)spinnerBitrate.getValue());
+		prefs.putInt("Scale", (Integer)spinnerScale.getValue());
 	}
 
 	protected void FileMenu_File_Close_Clicked()
@@ -662,7 +662,7 @@ public class WebmConverterGui
 		
 		String noAudio = chckbxNoAudio.isSelected() ? "-an" : "";
 		String overwrite = chckbxOverwrite.isSelected() ? "-y" : "";
-		String scale = "scale=iw*" + ((int)spinnerScale.getValue())/100 + ":-1";
+		String scale = "scale=iw*" + ((Integer)spinnerScale.getValue())/100 + ":-1";
 		String maxFileSize = (textFieldMaxFileSize.getText().isEmpty() ? "999999999" : Integer.parseInt(textFieldMaxFileSize.getText())).toString();
 		String threads = spinnerThreads.getValue().toString();
 		String cpuUsed = spinnerCpuUsed.getValue().toString();
@@ -763,7 +763,7 @@ public class WebmConverterGui
 		{
 			String frameString = matcher.group().trim();
 			int currentFrame = Integer.parseInt(frameString);
-			int totalFrames = (rangeSliderEndTime - rangeSliderStartTime) * (int)spinnerFrameRate.getValue();
+			int totalFrames = (rangeSliderEndTime - rangeSliderStartTime) * (Integer) spinnerFrameRate.getValue();
 			double percentDouble = (currentFrame == 0 ? 0 : ((double)currentFrame / totalFrames));
 			int percent = (int)(percentDouble*100);
 			
@@ -1158,6 +1158,7 @@ public class WebmConverterGui
 			img = ImageIO.read(new File(fileName));
 	        ImageIcon icon = new ImageIcon(img);
 	        lblPreviewStart.setIcon(icon);
+	        frmWebmConverter.pack();
 		} 
 		catch (IOException e) 
 		{
@@ -1178,6 +1179,7 @@ public class WebmConverterGui
 			img = ImageIO.read(new File(fileName));
 	        ImageIcon icon = new ImageIcon(img);
 	        lblPreviewEnd.setIcon(icon);
+	        frmWebmConverter.pack();
 		} 
 		catch (IOException e) 
 		{
