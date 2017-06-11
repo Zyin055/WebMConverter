@@ -1158,6 +1158,7 @@ public class WebmConverterGui
 			img = ImageIO.read(new File(fileName));
 	        ImageIcon icon = new ImageIcon(img);
 	        lblPreviewStart.setIcon(icon);
+	        frmWebmConverter.pack();
 		} 
 		catch (IOException e) 
 		{
@@ -1178,6 +1179,7 @@ public class WebmConverterGui
 			img = ImageIO.read(new File(fileName));
 	        ImageIcon icon = new ImageIcon(img);
 	        lblPreviewEnd.setIcon(icon);
+	        frmWebmConverter.pack();
 		} 
 		catch (IOException e) 
 		{
