@@ -7,4 +7,4 @@ Simple utility program written in Java to help convert videos into .webm format.
 
 ffmpeg.exe is required for this program and must be located next to the downloaded WebMConverter.jar file. It is included with the download.
 
-![](http://i.imgur.com/8GsThzi.jpg)
+![](https://i.imgur.com/x5TNEe7.jpg)
